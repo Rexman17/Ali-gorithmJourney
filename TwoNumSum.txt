@@ -1,0 +1,31 @@
+You can also read my Medium article on this challenge here: https://medium.com/@alireubenstone/twonumbersum-conundrum-452307b6e344
+
+- Write a function that takes in an array of distinct integers and an integer representing a target sum.
+- If any 2 numbers in the array sum to the target sum, return those numbers in a sorted array.
+- If no 2 numbers sum up to the target sum, the function should return an empty array.
+- Sample input: [2, 5, 9, -1], 8
+- Sample output: [-1, 9]
+
+Since I don’t want to just spoon feed the answer, I am going to talk through both solutions as though I were white boarding instead of just copy/pasting a gist.
+
+## Double ‘for loop’ way:
+I would begin by creating a for loop to track the first number which I would save to a variable inside this for loop
+The I’d create the second for loop to track the second number and save that number to a variable as well
+Then, I’d create an if statement to check if those two number sum to the target sum…if so, I would return the two numbers in a sorted array
+Otherwise, I’d return an empty array!
+
+## Takeaways:
+Time Complexity: O of n squared because there are two for loops (we can do better than this!)
+Space Complexity: Constant
+
+----------------------------
+##Hash map way:
+- Declare an empty hash
+- Run a for loop over the length of the array (yes we have just one for loop in this solution) and inside this for loop declare a variable that is the difference between the target sum and the current number ==> we want to do this because if this number exists in the hash, we know we have found a pair that sums to the target sum!
+- Check if the hash contains that number, and if so, return the two numbers in a sorted array
+- If the hash doesn’t contain that number, add it as a key to the hash
+- Otherwise, return an empty array!
+
+##Takeaways:
+Time Complexity: O of n where n represent the length of our input array and we only traverse this array one time → after that, we just access values in the hash which is done in constant time
+Space Complexity: O of n as well since we are adding values to the hash which nears n values
